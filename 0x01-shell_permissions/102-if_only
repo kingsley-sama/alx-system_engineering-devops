@@ -1,2 +1,2 @@
 #!/bin/bash
-chown betty hello
+ls -l filename | awk "{print $3}" == "guillaume" ? chown betty hello : 
