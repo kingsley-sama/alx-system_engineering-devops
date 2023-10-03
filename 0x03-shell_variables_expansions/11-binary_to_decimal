@@ -1,3 +1,2 @@
 #!/bin/bash
-name=$(printf "%X" "$DECIMAL")
-echo $name
+printf "%x\n" $DECIMAL
