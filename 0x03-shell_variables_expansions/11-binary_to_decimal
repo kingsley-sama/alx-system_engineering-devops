@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "ibase=2 $BINARY" | bc
+echo "$BINARY" | awk '{print strtonum("0b" $0)}'
