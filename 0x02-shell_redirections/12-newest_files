@@ -1,1 +1,2 @@
 #!/bin/bash
+find . -type f -mtime -1 |head -n 10
