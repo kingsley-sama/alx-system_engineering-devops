@@ -1,2 +1,2 @@
 #!/bin/bash
-cat /etc/passwd | tr -d "bin" |wc -l
+cat /etc/passwd | tr 'root' 'root'
