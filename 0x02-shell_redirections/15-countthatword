@@ -1,2 +1,2 @@
 #!/bin/bash
-cut -d'bin' -f2 /etc/passwd |wc -l
+tr -d "bin" |wc -l
