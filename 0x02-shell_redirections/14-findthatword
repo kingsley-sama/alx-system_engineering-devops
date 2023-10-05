@@ -1,2 +1,2 @@
 #!/bin/bash
-grep -i "root" /etc/passwd
+cut -d'bin' -f2 /etc/passwd |wc -l
