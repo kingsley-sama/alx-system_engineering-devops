@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Prints Best School 10 times
+files=$(ls)
+for file in $files
+do
+	echo $file
+done
