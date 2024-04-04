@@ -1,7 +1,3 @@
 #!/usr/bin/env bash
 # Display active internet connections (only servers)
-echo "Active Internet connections (only servers)"
-ss -tulnp
-# Display active UNIX domain sockets (only servers)
-echo "Active UNIX domain sockets (only servers)"
-ss -lxp
+netstat -lp
