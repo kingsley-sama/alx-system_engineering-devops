@@ -1,4 +1,4 @@
-file {'temp/school':
+file {'/temp/school':
     ensure  => 'file',
     content => 'I love Puppet',
     owner   => 'www-data',
