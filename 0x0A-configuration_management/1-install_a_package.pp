@@ -1,7 +1,9 @@
 # installs Flask version 2.1.0
-class { 'python::pip': }
 package { 'flask':
-  ensure   => 'installed',
+  ensure   => '2.1.0',
   provider => 'pip3',
-  require  => Class['python::pip'],
+}
+package { 'werkzeug':
+  ensure   => '2.1.1',
+  provider => 'pip3',
 }
