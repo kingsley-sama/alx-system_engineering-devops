@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 # uses file containing my ssh key to authenticate with my server
-ssh key-gen -t rsa -b 4096 -i ~/.ssh/school -N "betty"
+ssh key-gen -t rsa -b 4096 -f school -N "betty"
