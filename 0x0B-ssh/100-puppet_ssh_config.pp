@@ -5,10 +5,15 @@ file { '/tmp/school.sh':
   owner   => 'ubuntu',
   content => @(END),
     #!/usr/bin/env bash
-    # Generates an new key that uses rsa encoding and is stored in scool
-    sudo sed -i 's/^.*PasswordAuthentication.*$/PasswordAuthentication no/' /etc/ssh/ssh_config
+    # Generates an new key tha
     ssh-keygen -t rsa -b 4096 -f ~/.ssh/school
     END
+}
+# Puppet script to create ssh config file
+file_line { 'Turn off passwd auth':
+  ensure => 'present',
+  path   => '/etc/ssh/ssh_config',
+  line   => '    PasswordAuthentication no',
 }
 exec { 'generate_rsa_key':
   command => '/bin/bash /tmp/school.sh',
