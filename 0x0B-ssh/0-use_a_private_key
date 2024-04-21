@@ -1,0 +1,3 @@
+#!/user/bin/env bash
+# uses file containing my ssh key to authenticate with my server
+cat ~/.ssh/school | ssh ubuntu@server01 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys""mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
