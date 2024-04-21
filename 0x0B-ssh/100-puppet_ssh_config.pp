@@ -1,18 +1,18 @@
-file { '/home/ubuntu/.ssh/config':
+# Removes ssh password and sets up ssh authentication
+file { '/tmp/school.sh':
   ensure  => file,
-  mode    => '0600',               # Set file permissions to 0600
+  mode    => '0777',
   owner   => 'ubuntu',
   content => @(END),
-    Host your_server_ip
-      IdentityFile ~/.ssh/school
-      PasswordAuthentication no
-  END
+    #!/usr/bin/env bash
+    # Generates an new key that uses rsa encoding and is stored in scool
+    sudo sed -i 's/^.*PasswordAuthentication.*$/PasswordAuthentication no/' /etc/ssh/ssh_config
+    ssh-keygen -t rsa -b 4096 -f ~/.ssh/school
+    END
+}
+exec { 'generate_rsa_key':
+  command => '/bin/bash /tmp/school.sh',
+  path    => '/usr/bin:/bin',
+  user    => 'ubuntu',
 }
 
-exec { 'generate_rsa_key':
-  command     => '/usr/bin/ssh-keygen -t rsa -b 4096 -f /home/ubuntu/.ssh/school',
-  creates     => '/home/ubuntu/.ssh/school', # Only run if the key doesn't exist
-  path        => '/usr/bin',                 # Set the PATH to ensure ssh-keygen is found
-  user        => 'ubuntu',
-  refreshonly => true,                       # Only execute when needed
-}
