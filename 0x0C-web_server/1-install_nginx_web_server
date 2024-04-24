@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Installs and starts nginx server
+sudo apt upate
+sudo apt install nginx
+sudo su root
+sudo echo "Hello World!" > /var/www/html/index.nginx-debian.html
