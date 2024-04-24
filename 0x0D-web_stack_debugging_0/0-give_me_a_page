@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# this file sets up apache2 on my docker machine
+echo "Hello Holberton" > /var/www/html/index.html
+sudo sed -i 's#DocumentRoot .*/$#DocumentRoot /var/www/html/index.html#' /etc/apache2/sites-available/000-default.conf
+service apache2 restart
