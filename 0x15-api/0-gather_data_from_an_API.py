@@ -23,7 +23,7 @@ def get_employee_detail(employee_id=0):
                                        todo_data if task['completed'])
             string = (
                 f"Employee {EMPLOYEE_NAME} is done with tasks "
-                f"({NUMBER_OF_DONE_TASKS} / {TOTAL_NUMBER_OF_TASKS}): "
+                f"({NUMBER_OF_DONE_TASKS} / {TOTAL_NUMBER_OF_TASKS}):"
             )
             print(string)
         for task in todo_data:
