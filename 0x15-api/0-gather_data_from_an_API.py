@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""This module fetches from the employee db"""
 from urllib import request, response, error
 from sys import argv
 import json
