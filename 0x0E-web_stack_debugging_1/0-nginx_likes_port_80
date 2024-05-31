@@ -4,5 +4,5 @@
 # because is nginx is already runnin the start command will do nothing
 # and as such the changes will not apply
 # but restart kills the service and starts it again
-sudo grep -i 's/80/8080/g' /etc/nginx/sites-available/default
+sudo sed -i 's/\blisten\s\+[0-9]\+;/listen 80;/g' /etc/nginx/sites-available/default
 sudo service nginx restart
