@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 # fix nginx listen port 80
-grep -i 's/80/8080/g' /etc/nginx/sites-available/default
-service nginx restart
+# note the restart command should be used instead of the start commad
+# because is nginx is already runnin the start command will do nothing
+# and as such the changes will not apply
+# but restart kills the service and starts it again
+sudo grep -i 's/80/8080/g' /etc/nginx/sites-available/default
+sudo service nginx restart
