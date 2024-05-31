@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # fix nginx listen port 80 using symbolic link
-echo "nginx is not running"
 sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 sudo service nginx restart
+pkill -o nginx
