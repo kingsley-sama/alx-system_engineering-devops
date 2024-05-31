@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# fix nginx listen port 80
+grep -i 's/80/8080/g' /etc/nginx/sites-available/default
+service nginx start
