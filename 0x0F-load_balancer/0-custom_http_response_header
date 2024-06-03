@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+# Update package lists and install Nginx
+apt-get update
+apt-get install -y nginx
+
+# Define the custom header configuration
+custom_header_config="\
+server {\n
+    listen 80 default_server;\n
+    listen [::]:80 default_server;\n
+    server_name _;\n
+    \n
+    location / {\n
+        add_header X-Served-By \$hostname;\n
+        # Other configurations...\n
+    }\n
+}\n"
+
+# Remove default Nginx configuration and create a new one with custom header
+echo -e "$custom_header_config" > /etc/nginx/sites-available/default
+
+# Reload Nginx to apply changes
+systemctl reload nginx
+
+# Display success message
+echo "Nginx configured with custom HTTP response header successfully."
