@@ -5,19 +5,19 @@ class { 'apache':
 class { 'apache::mod::php': }
 
 package { 'php':
-  ensure => installed,
+  ensure  => installed,
   require => Class['apache'],
 }
 
 package { 'php-mysql':
-  ensure => installed,
+  ensure  => installed,
   require => Package['php'],
 }
 
 service { 'apache2':
-  ensure     => running,
-  enable     => true,
-  subscribe  => Package['php'],
+  ensure    => running,
+  enable    => true,
+  subscribe => Package['php'],
 }
 
 exec { 'update_apt':
